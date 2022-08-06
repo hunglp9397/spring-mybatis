@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hunglp.code.mapper.TeacherMapper">
+
+
+    <select id="getTeacherByMajor" resultType="com.hunglp.code.dto.TeacherDTO">
+        SELECT *
+        FROM TBLTEACHER T
+                 INNER JOIN TBLMAJOR M ON T.MAJOR_ID = M.MAJOR_ID
+        WHERE M.MAJOR_NAME = #{majorName}
+    </select>
+
+
+</mapper>

@@ -12,4 +12,6 @@ public class TeacherDTO {
     private float salary;
 
     private String majorId;
+
+    private String majorName;
 }

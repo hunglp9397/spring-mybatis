@@ -15,9 +15,13 @@ public class TeacherServiceImpl implements TeacherService {
     @Autowired
     private TeacherMapper teacherMapper;
 
-
     @Override
     public List<TeacherDTO> getTeacherByMajor(String majorName) {
         return teacherMapper.getTeacherByMajor(majorName);
+    }
+
+    @Override
+    public List<TeacherDTO> getTeacherWithMajorWhoGuideGreaterThanOneStudent() {
+        return teacherMapper.getTeacherWithMajorWhoGuideGreaterThanOneStudent();
     }
 }

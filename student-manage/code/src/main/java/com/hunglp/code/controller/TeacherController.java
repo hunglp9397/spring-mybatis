@@ -19,9 +19,14 @@ public class TeacherController {
     private TeacherService teacherService;
 
     @GetMapping("/teachers")
-    List<TeacherDTO> getTeacherByMajor(@RequestParam("majorName") String majorName){
-
+    public List<TeacherDTO> getTeacherByMajor(@RequestParam("majorName") String majorName) {
         return teacherService.getTeacherByMajor(majorName);
+    }
+
+    @GetMapping("/teachers/who-guide-greater-than-one-student")
+    public List<TeacherDTO> getTeacherWithMajorWhoGuideGreaterThanOneStudent() {
+        return teacherService.getTeacherWithMajorWhoGuideGreaterThanOneStudent();
+
 
     }
 }

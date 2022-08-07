@@ -8,4 +8,6 @@ import java.util.List;
 public interface StudentService {
 
     List<StudentDTO> getStudentNotAttendIntern();
+
+    List<StudentDTO> getStudentGuidedByTeacher(String teacherName);
 }

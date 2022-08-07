@@ -6,7 +6,19 @@
     <select id="getStudentNotAttendIntern" resultType="com.hunglp.code.dto.StudentDTO">
         SELECT *
         FROM TBLSTUDENT T
-        WHERE NOT EXISTS (SELECT student_id FROM TBLGUIDE G WHERE G.student_id = T.student_id )
+        WHERE NOT EXISTS(SELECT student_id FROM TBLGUIDE G WHERE G.student_id = T.student_id)
+    </select>
+
+
+    <select id="getStudentGuidedByTeacher" resultType="com.hunglp.code.dto.StudentDTO">
+        SELECT *
+        FROM TBLSTUDENT S
+                 JOIN TBLGUIDE G
+                      ON S.student_id = G.student_id
+                 JOIN TBLTEACHER T
+                      ON G.teacher_id = T.teacher_id
+        WHERE T.teacher_name = #{teacherName}
+
     </select>
 
 

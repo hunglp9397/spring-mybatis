@@ -10,5 +10,13 @@
         WHERE M.MAJOR_NAME = #{majorName}
     </select>
 
+    <select id="getTeacherWithMajorWhoGuideGreaterThanOneStudent" resultType="com.hunglp.code.dto.TeacherDTO">
+
+        SELECT T.teacher_name, M.major_name as majorName FROM TBLTEACHER T
+        JOIN TBLMAJOR M ON T.major_id = M.major_id
+        WHERE T.teacher_id in (SELECT G.teacher_id FROM TBLGUIDE G GROUP BY G.teacher_id HAVING COUNT(G.student_id) > 1)
+
+    </select>
+
 
 </mapper>

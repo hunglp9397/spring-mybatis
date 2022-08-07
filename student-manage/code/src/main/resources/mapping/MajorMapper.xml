@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hunglp.code.mapper.MajorMapper">
+
+
+    <select id="getMajorWithCountTeacherOfEach" resultType="com.hunglp.code.dto.MajorDTO">
+        SELECT M.major_id, M.major_name, M.phone_number, count(T.teacher_id) as numOfTeacher
+        FROM TBLMAJOR M
+                 JOIN TBLTEACHER T ON M.major_id = T.major_id
+        GROUP BY major_id
+    </select>
+
+
+
+
+</mapper>

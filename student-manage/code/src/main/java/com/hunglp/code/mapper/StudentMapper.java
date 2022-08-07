@@ -9,4 +9,6 @@ import java.util.List;
 public interface StudentMapper {
 
     List<StudentDTO> getStudentNotAttendIntern();
+
+    List<StudentDTO> getStudentGuidedByTeacher(String teacherName);
 }

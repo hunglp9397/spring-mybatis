@@ -8,5 +8,7 @@ public interface TeacherService {
 
     List<TeacherDTO> getTeacherByMajor(String majorName);
 
+    List<TeacherDTO> getTeacherWithMajorWhoGuideGreaterThanOneStudent();
+
 
 }
